@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: cloudflared-myweather-app
+  name: cloudflared-myweather
 spec:
   selector:
     matchLabels:
-      app: cloudflared-myweather-app
+      app: cloudflared-myweather
   replicas: 2 # You could also consider elastic scaling for this deployment
   template:
     metadata:
       labels:
-        app: cloudflared-myweather-app
+        app: cloudflared-myweather
     spec:
       containers:
-      - name: cloudflared-myweather-app
+      - name: cloudflared-myweather
         image: cloudflare/cloudflared:latest
         args:
         - tunnel
@@ -42,7 +42,7 @@ spec:
       # Create a config.yaml file from the ConfigMap below.
       - name: config
         configMap:
-          name: cloudflared-myweather-app
+          name: cloudflared-myweather
           items:
           - key: config.yaml
             path: config.yaml
@@ -51,7 +51,7 @@ spec:
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: cloudflared-myweather-app
+  name: cloudflared-myweather
 data:
   config.yaml: |
     tunnel: myweather
