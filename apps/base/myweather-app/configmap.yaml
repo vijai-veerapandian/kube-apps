@@ -1,0 +1,17 @@
+configmap.yaml 
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: frontend-configmap
+  namespace: myweather-app
+data:
+  PORT: "9090"
+---
+configmap.yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: backend-configmap
+  namespace: myweather-app
+data:
+  PORT: "5000"

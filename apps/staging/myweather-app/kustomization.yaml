@@ -1,0 +1,9 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: myweather-app
+resources:
+  - ../../base/myweather-app
+  - cloudflare.yaml
+  - cloudflare-secret.yaml
+  - ingress.yaml
+  - backend-env-secret.yaml
