@@ -5,7 +5,7 @@ metadata:
 spec:
   ingressClassName: traefik
   rules:
-  - host: myweather-app.vijaiveerapandian.com
+  - host: myweather.vijaiveerapandian.com
     http:
       paths:
       - backend:
