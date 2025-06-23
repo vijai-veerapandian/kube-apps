@@ -30,4 +30,4 @@ spec:
 
       envFrom:
         - configMapRef:
-            name: myweather-app-frontend-configmap
+            name: frontend-configmap
