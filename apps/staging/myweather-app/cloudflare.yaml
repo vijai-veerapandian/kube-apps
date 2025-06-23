@@ -54,14 +54,14 @@ metadata:
   name: cloudflared-myweather-app
 data:
   config.yaml: |
-    tunnel: myweather-app
+    tunnel: myweather
     credentials-file: /etc/cloudflared/creds/credentials.json
     metrics: 0.0.0.0:2000
     no-autoupdate: true
 
     ingress:
     - hostname: myweather.vijaiveerapandian.com
-      service: http://myweather-app:9090
+      service: http://frontend:9090
 
     - hostname: hello.example.com
       service: hello_world
