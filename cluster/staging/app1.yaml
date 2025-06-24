@@ -1,14 +1,14 @@
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
 metadata:
-  name: app2
+  name: app1
   namespace: flux-system
 spec:
   interval: 10m0s
   retryInterval: 1m
   timeout: 5m
 
-  path: ./apps/staging/myweather-app
+  path: ./apps/staging/audiobookshelf
   prune: true
   sourceRef:
     kind: GitRepository
@@ -17,4 +17,3 @@ spec:
     provider: sops
     secretRef:
       name: sops-age
-~                     
