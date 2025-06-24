@@ -6,6 +6,7 @@ metadata:
   labels:
     io.kompose.service: backend
   name: backend
+  namespace: myweather
 spec:
   replicas: 1
   selector:
@@ -18,14 +19,23 @@ spec:
       labels:
         io.kompose.service: backend
     spec:
-      imagePullSecrets:
-        - name: ghcr-creds
       containers:
-        - envFrom:
-            - configMapRef:
-                name: backend-configmap
-            - secretRef:
-                name: backend-env-secret 
+        - env:
+            - name: GEMINI_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: backend-secret
+                  key: GEMINI_API_KEY
+            - name: PORT
+              valueFrom:
+                configMapKeyRef:
+                  name: backend-configmap
+                  key: PORT
+            - name: REACT_APP_RAPIDAPI_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: backend-secret
+                  key: REACT_APP_RAPIDAPI_KEY
           image: ghcr.io/vijai-veerapandian/myweather-backend:1.0
           name: myweather-backend
           ports:
