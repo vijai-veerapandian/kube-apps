@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: cloudflared-myweather
+  namespace: myweather
 spec:
   selector:
     matchLabels:
@@ -52,6 +53,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: cloudflared-myweather
+  namespace: myweather
 data:
   config.yaml: |
     tunnel: myweather
@@ -63,6 +65,4 @@ data:
     - hostname: myweather.vijaiveerapandian.com
       service: http://frontend:9090
 
-    - hostname: hello.example.com
-      service: hello_world
     - service: http_status:404

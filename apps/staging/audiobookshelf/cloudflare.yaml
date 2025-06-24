@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: cloudflared-audiobookshelf
+  namespace: audiobookshelf
 spec:
   selector:
     matchLabels:
@@ -52,6 +53,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: cloudflared-audiobookshelf
+  namepsace: audiobookshelf
 data:
   config.yaml: |
     tunnel: audiobookshelf
@@ -63,6 +65,4 @@ data:
     - hostname: audiobookshelf.vijaiveerapandian.com
       service: http://audiobookshelf:3005
 
-    - hostname: hello.example.com
-      service: hello_world
     - service: http_status:404
