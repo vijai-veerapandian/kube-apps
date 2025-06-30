@@ -1,4 +1,4 @@
-### Validate the apps internally from the kubernetes cluster itself.
+### Validate the apps internally from the kubernetes cluster.
 
 1. Create a temporary pod with network tools. It will be removed when you exit.
 ```
